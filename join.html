@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANNAN HOD JOIN</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.header{
+    background:#222;
+    padding:20px;
+    text-align:center;
+    border-bottom:3px solid #ffd84d;
+}
+
+.header h2{color:#ffd84d}
+
+.container{
+    width:92%;
+    max-width:600px;
+    margin:auto;
+    padding:30px 0;
+}
+
+.title{
+    text-align:center;
+    color:#ffd84d;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+.hod-section{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.hod-card{
+    width:50%;
+    background:#222;
+    border:2px solid #b88620;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+}
+
+.hod-card h3{
+    color:#ffd84d;
+    margin-bottom:10px;
+}
+
+.hod-photo{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:8px;
+    border:2px solid #ffd84d;
+}
+
+.form-box{
+    background:#222;
+    border:2px solid #9b741b;
+    border-radius:12px;
+    padding:22px;
+}
+
+.group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    color:#ddd;
+    margin-bottom:7px;
+}
+
+input,select{
+    width:100%;
+    padding:13px;
+    background:#111;
+    color:white;
+    border:1px solid #765a19;
+    border-radius:7px;
+    font-size:15px;
+}
+
+.submit{
+    width:100%;
+    padding:15px;
+    background:#e00000;
+    color:white;
+    border:0;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+#result{
+    display:none;
+    margin-top:30px;
+}
+
+.member-card{
+    background:#1c1205;
+    border:3px solid #d4a72c;
+    border-radius:15px;
+    padding:22px;
+}
+
+.member-title{
+    text-align:center;
+    color:#ffd84d;
+    font-size:19px;
+    margin-bottom:20px;
+}
+
+.card-content{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.member-photo{
+    width:100px;
+    height:120px;
+    object-fit:cover;
+    border:2px solid #ffd84d;
+    border-radius:8px;
+}
+
+.member-name{
+    color:#ffd84d;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.info{
+    color:#aaa;
+    font-size:13px;
+    line-height:2;
+}
+
+.info span{
+    color:white;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:25px;
+    color:#ffd84d;
+}
+
+footer{
+    margin-top:40px;
+    padding:25px;
+    text-align:center;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h2>ANNAN HOD • THAMBI HOD</h2>
+</div>
+
+<div class="container">
+
+<h1 class="title">ANNAN HOD • THAMBI HOD</h1>
+
+<p class="subtitle">எங்கள் HOD-க்கள்</p>
+
+<div class="hod-section">
+
+<div class="hod-card">
+<h3>ANNAN HOD</h3>
+<img src="annan.jpg" class="hod-photo" alt="ANNAN HOD">
+</div>
+
+<div class="hod-card">
+<h3>THAMBI HOD</h3>
+<img src="thambi.jpg" class="hod-photo" alt="THAMBI HOD">
+</div>
+
+</div>
+
+<div class="form-box">
+
+<form id="joinForm">
+
+<div class="group">
+<label>உங்கள் Photo</label>
+<input type="file" id="photo" accept="image/*" required>
+</div>
+
+<div class="group">
+<label>உங்கள் பெயர்</label>
+<input type="text" id="name" placeholder="உங்கள் பெயர்" required>
+</div>
+
+<div class="group">
+<label>Phone Number</label>
+<input type="tel" id="phone" placeholder="Mobile Number" required>
+</div>
+
+<div class="group">
+<label>ID Card Number</label>
+<input type="text" id="idcard" placeholder="ID Card Number" required>
+</div>
+
+<div class="group">
+<label>Date of Birth</label>
+<input type="date" id="dob" required>
+</div>
+
+<div class="group">
+<label>Posting</label>
+
+<select id="posting" required>
+
+<option value="">Select Posting</option>
+
+<option>BSC IT REPRESENTATIVE</option>
+<option>BSC IT CHAIRMAN</option>
+<option>BSC IT VISE CHAIRMAN</option>
+<option>BSC IT JOIN SECRETARY</option>
+
+</select>
+</div>
+
+<button type="submit" class="submit">
+SUBMIT
+</button>
+
+</form>
+</div>
+
+<div id="result">
+
+<div class="member-card">
+
+<div class="member-title">
+ANNAN HOD • THAMBI HOD
+</div>
+
+<div class="card-content">
+
+<img id="cardPhoto" class="member-photo">
+
+<div>
+
+<div id="cardName" class="member-name"></div>
+
+<div class="info">
+
+ID CARD NUMBER:
+<span id="cardId"></span>
+
+<br>
+
+POSTING:
+<span id="cardPosting"></span>
+
+<br>
+
+PHONE:
+<span id="cardPhone"></span>
+
+<br>
+
+DATE OF BIRTH:
+<span id="cardDob"></span>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<a href="index.html" class="back">
+← HOME
+</a>
+
+</div>
+
+<footer>
+ANNAN HOD • THAMBI HOD
+</footer>
+
+<script>
+
+document.getElementById("joinForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+var file=document.getElementById("photo").files[0];
+
+if(!file){
+alert("Photo upload pannunga");
+return;
+}
+
+var reader=new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById("cardPhoto").src=e.target.result;
+
+document.getElementById("cardName").innerText=
+document.getElementById("name").value;
+
+document.getElementById("cardId").innerText=
+document.getElementById("idcard").value;
+
+document.getElementById("cardPosting").innerText=
+document.getElementById("posting").value;
+
+document.getElementById("cardPhone").innerText=
+document.getElementById("phone").value;
+
+document.getElementById("cardDob").innerText=
+document.getElementById("dob").value;
+
+document.getElementById("result").style.display="block";
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+</script>
+
+</body>
+</html>
